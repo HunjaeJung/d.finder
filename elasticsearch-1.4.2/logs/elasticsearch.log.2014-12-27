@@ -1,0 +1,98 @@
+[2014-12-27 13:58:48,882][INFO ][node                     ] [Danger] version[1.4.2], pid[2390], build[927caff/2014-12-16T14:11:12Z]
+[2014-12-27 13:58:48,883][INFO ][node                     ] [Danger] initializing ...
+[2014-12-27 13:58:48,912][INFO ][plugins                  ] [Danger] loaded [analysis-korean, jetty], sites [bigdesk, head]
+[2014-12-27 13:58:52,194][INFO ][node                     ] [Danger] initialized
+[2014-12-27 13:58:52,197][INFO ][node                     ] [Danger] starting ...
+[2014-12-27 13:58:52,358][INFO ][transport                ] [Danger] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/172.16.101.82:9300]}
+[2014-12-27 13:58:52,420][INFO ][discovery                ] [Danger] elasticsearch/DzJzXf6ESZeOQiFe4aqKrQ
+[2014-12-27 13:58:56,210][INFO ][cluster.service          ] [Danger] new_master [Danger][DzJzXf6ESZeOQiFe4aqKrQ][Hunjaeui-MacBook-Pro.local][inet[/172.16.101.82:9300]], reason: zen-disco-join (elected_as_master)
+[2014-12-27 13:58:56,264][INFO ][http                     ] [Danger] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/172.16.101.82:9200]}
+[2014-12-27 13:58:56,264][INFO ][node                     ] [Danger] started
+[2014-12-27 13:58:57,781][INFO ][gateway                  ] [Danger] recovered [6] indices into cluster_state
+[2014-12-27 15:45:09,936][DEBUG][action.index             ] [Danger] [dbx][4], node[DzJzXf6ESZeOQiFe4aqKrQ], [P], s[STARTED]: Failed to execute [index {[dbx][file][AUqKfdSrzfsSyJRaIhia], source[{"cp:subject": "", "Content-Length": "52711", "producer": "Adobe PDF Library 10.0", "Author": "mitchd07", "text": "\nBBC Learning English \n6 Minute English  \n17 July 2014 \nStar signs \n \n \n\nNB: This is not a word-for-word transcript \n \n\n \n \n\n6 Minute English \u00a9British Broadcasting Corporation 2014 \n Page 1 of 4 \n\nbbclearningenglish.com \n \n\nRob:   Hello I\u2019m Rob \u2013 a Gemini. Welcome to 6 Minute English. I\u2019m joined today by \nNeil.  \n\n \nNeil:  Hi Rob. Im]}]
+org.elasticsearch.index.mapper.MapperParsingException: failed to parse [text]
+	at org.elasticsearch.index.mapper.core.AbstractFieldMapper.parse(AbstractFieldMapper.java:415)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.serializeValue(ObjectMapper.java:707)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.parse(ObjectMapper.java:500)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:541)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:490)
+	at org.elasticsearch.index.shard.service.InternalIndexShard.prepareCreate(InternalIndexShard.java:392)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:198)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction.performOnPrimary(TransportShardReplicationOperationAction.java:511)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction$1.run(TransportShardReplicationOperationAction.java:419)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.common.jackson.core.JsonParseException: Unexpected end-of-input in VALUE_STRING
+ at [Source: [B@648a59d; line: 1, column: 989]
+	at org.elasticsearch.common.jackson.core.JsonParser._constructError(JsonParser.java:1419)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:508)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportInvalidEOF(ParserMinimalBase.java:445)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportInvalidEOF(ParserMinimalBase.java:441)
+	at org.elasticsearch.common.jackson.core.base.ParserBase.loadMoreGuaranteed(ParserBase.java:408)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser._finishString2(UTF8StreamJsonParser.java:2184)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser._finishString(UTF8StreamJsonParser.java:2165)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser.getText(UTF8StreamJsonParser.java:279)
+	at org.elasticsearch.common.xcontent.json.JsonXContentParser.text(JsonXContentParser.java:86)
+	at org.elasticsearch.common.xcontent.support.AbstractXContentParser.textOrNull(AbstractXContentParser.java:194)
+	at org.elasticsearch.index.mapper.core.StringFieldMapper.parseCreateFieldForString(StringFieldMapper.java:337)
+	at org.elasticsearch.index.mapper.core.StringFieldMapper.parseCreateField(StringFieldMapper.java:277)
+	at org.elasticsearch.index.mapper.core.AbstractFieldMapper.parse(AbstractFieldMapper.java:405)
+	... 11 more
+[2014-12-27 15:51:50,154][INFO ][cluster.metadata         ] [Danger] [[dbx]] remove_mapping [[file]]
+[2014-12-27 15:52:28,019][INFO ][cluster.metadata         ] [Danger] [dbx] update_mapping [file] (dynamic)
+[2014-12-27 15:52:36,620][DEBUG][action.index             ] [Danger] [dbx][3], node[DzJzXf6ESZeOQiFe4aqKrQ], [P], s[STARTED]: Failed to execute [index {[dbx][file][AUqKhKWHzfsSyJRaIhic], source[{"cp:subject": "", "Content-Length": "52711", "producer": "Adobe PDF Library 10.0", "Author": "mitchd07", "text": "\nBBC Learning English \n6 Minute English  \n17 July 2014 \nStar signs \n \n \n\nNB: This is not a word-for-word transcript \n \n\n \n \n\n6 Minute English \u00a9British Broadcasting Corporation 2014 \n Page 1 of 4 \n\nbbclearningenglish.com \n \n\nRob:   Hello I\u2019m Rob \u2013 a Gemini. Welcome to 6 Minute English. I\u2019m joined today by \nNeil.  \n\n \nNeil:  Hi Rob. Im]}]
+org.elasticsearch.index.mapper.MapperParsingException: failed to parse
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:562)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:490)
+	at org.elasticsearch.index.shard.service.InternalIndexShard.prepareCreate(InternalIndexShard.java:392)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:198)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction.performOnPrimary(TransportShardReplicationOperationAction.java:511)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction$1.run(TransportShardReplicationOperationAction.java:419)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.common.jackson.core.JsonParseException: Unexpected end-of-input in VALUE_STRING
+ at [Source: [B@4e4855a9; line: 1, column: 989]
+	at org.elasticsearch.common.jackson.core.JsonParser._constructError(JsonParser.java:1419)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:508)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportInvalidEOF(ParserMinimalBase.java:445)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportInvalidEOF(ParserMinimalBase.java:441)
+	at org.elasticsearch.common.jackson.core.base.ParserBase.loadMoreGuaranteed(ParserBase.java:408)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser._finishString2(UTF8StreamJsonParser.java:2184)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser._finishString(UTF8StreamJsonParser.java:2165)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser.getTextLength(UTF8StreamJsonParser.java:385)
+	at org.elasticsearch.common.xcontent.json.JsonXContentParser.textLength(JsonXContentParser.java:143)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.parseDynamicValue(ObjectMapper.java:745)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.serializeValue(ObjectMapper.java:709)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.parse(ObjectMapper.java:500)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:541)
+	... 8 more
+[2014-12-27 17:29:51,590][DEBUG][action.index             ] [Danger] [dbx][4], node[DzJzXf6ESZeOQiFe4aqKrQ], [P], s[STARTED]: Failed to execute [index {[dbx][file][AUqK3a5lzfsSyJRaIhie], source[{"cp:subject": "", "Content-Length": "52711", "producer": "Adobe PDF Library 10.0", "Author": "mitchd07", "text": "\nBBC Learning English \n6 Minute English  \n17 July 2014 \nStar signs \n \n \n\nNB: This is not a word-for-word transcript \n \n\n \n \n\n6 Minute English \u00a9British Broadcasting Corporation 2014 \n Page 1 of 4 \n\nbbclearningenglish.com \n \n\nRob:   Hello I\u2019m Rob \u2013 a Gemini. Welcome to 6 Minute English. I\u2019m joined today by \nNeil.  \n\n \nNeil:  Hi Rob. Im]}]
+org.elasticsearch.index.mapper.MapperParsingException: failed to parse
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:562)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:490)
+	at org.elasticsearch.index.shard.service.InternalIndexShard.prepareCreate(InternalIndexShard.java:392)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:198)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction.performOnPrimary(TransportShardReplicationOperationAction.java:511)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction$1.run(TransportShardReplicationOperationAction.java:419)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.common.jackson.core.JsonParseException: Unexpected end-of-input in VALUE_STRING
+ at [Source: [B@30d3368e; line: 1, column: 989]
+	at org.elasticsearch.common.jackson.core.JsonParser._constructError(JsonParser.java:1419)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:508)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportInvalidEOF(ParserMinimalBase.java:445)
+	at org.elasticsearch.common.jackson.core.base.ParserMinimalBase._reportInvalidEOF(ParserMinimalBase.java:441)
+	at org.elasticsearch.common.jackson.core.base.ParserBase.loadMoreGuaranteed(ParserBase.java:408)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser._finishString2(UTF8StreamJsonParser.java:2184)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser._finishString(UTF8StreamJsonParser.java:2165)
+	at org.elasticsearch.common.jackson.core.json.UTF8StreamJsonParser.getTextLength(UTF8StreamJsonParser.java:385)
+	at org.elasticsearch.common.xcontent.json.JsonXContentParser.textLength(JsonXContentParser.java:143)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.parseDynamicValue(ObjectMapper.java:745)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.serializeValue(ObjectMapper.java:709)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.parse(ObjectMapper.java:500)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:541)
+	... 8 more
+[2014-12-27 17:31:11,453][INFO ][cluster.metadata         ] [Danger] [dbx] update_mapping [file] (dynamic)
