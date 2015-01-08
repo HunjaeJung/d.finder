@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template, request, session
+from flask import Flask, jsonify, url_for, render_template, request, session
 from dropbox.client import DropboxOAuth2Flow, DropboxClient
 import os
 import json
@@ -14,13 +14,13 @@ name_after = ""
 contents = ""
 json_encode = ""
 
-@app.route('/')
-def dfinder():
-	return render_template('index.html')
 
+@app.route('/_update_files', methods=['GET'])
 def update_files():
 	for root, dirs, files in os.walk(directory):
 		for file in files:
+			if file == ".DS_Store":
+				continue
 			name_before = file
 			name_after = file.translate(None,changechars)
 			if name_after!=name_before:
@@ -38,9 +38,17 @@ def update_files():
 			json_encode=json.dumps(json_encode)
 			
 			#make each file infomation to json data type for elasticsearch
-			os.system("curl -silent -XPOST 'http://localhost:9200/dbx/file/' -d '"+json_encode+"'")
+			os.system("curl -silent -XPOST 'http://localhost:9200/appscon1/file/' -d '"+json_encode+"'")
+
+			a = request.args.get('a',0,type=int)
+			b = request.args.get('b',0,type=int)
+
+	return jsonify(result=a+b+3)
 
 
+@app.route('/')
+def dfinder():
+	return render_template('index.html')
 
 if __name__ == '__main__':
 	app.debug = True

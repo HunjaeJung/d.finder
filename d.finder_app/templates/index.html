@@ -26,12 +26,24 @@
 </head>
 
 <body>
+  <a id="refresh_id">Refresh data</a>
+  <script type="text/javascript">
+    $('#refresh_id').click(function(){
+      $.ajax({
+        url : "http://localhost:5000/_update_files",
+        data : {a: 1, b: 2},
+        type : 'GET'
+      }).done(function(data) {
+        alert("앱 등록 완")
+      }).error(function(e) {
+        console.log("error")
+      });
+    })
+  </script>
 	<a href="{{authorize_url}}">
-	<img src="{{ url_for('static', filename='images/dbx.png') }}" width='80px' class="dbx_img"/></a>
-
 	<div class="wrapper">
 		<a class="engine_title" href="{{url_for('dfinder')}}">
-		<img src="{{ url_for('static', filename='images/bird.jpg') }}" width='200px' class="title_img"/>
+		<img src="{{ url_for('static', filename='images/steampunk.jpg') }}" width='400px' class="title_img"/>
 		<br/></a>
 		<div id="count_index" class="count_index"></div>
 
@@ -82,11 +94,33 @@
     var info     = $('.info');
     var request  = $('.request');
     var response = $('.response');
+    
     $('#init').click(function(){
       request.html('branch.init();');
       branch.init(function(data){
         response.html(JSON.stringify(data));
         info.html(JSON.stringify(branch.utils.readSession()));
+      });
+    });
+    $('#createLink').click(function(){
+      request.html("branch.createLink({tags: ['tag1', 'tag2'],channel: 'sample app',feature: 'create link',stage: 'created link',type: 1,data: {mydata: {foo: 'bar'},'$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html','$og_title': 'Branch Metrics','$og_description': 'Branch Metrics','$og_image_url': 'http://branch.io/img/logo_icon_white.png'}});");
+      branch.createLink({
+        tags: ['tag1', 'tag2'],
+        channel: 'sample app',
+        feature: 'create link',
+        stage: 'created link',
+        type: 1,
+        data: {  
+          mydata: {
+            foo: 'bar'
+          },
+          '$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html',
+          '$og_title': 'Branch Metrics',
+          '$og_description': 'Branch Metrics',
+          '$og_image_url': 'http://branch.io/img/logo_icon_white.png'
+        }
+      }, function(link){
+        response.html('<a href="' + link + '">' + link + '</a>');
       });
     });
     $('#identify').click(function(){
@@ -117,27 +151,6 @@
       request.html('branch.track(\'Tracked this click\');');
       branch.track('Tracked this click', function(data){
         response.html(JSON.stringify(data));
-      });
-    });
-    $('#createLink').click(function(){
-      request.html("branch.createLink({tags: ['tag1', 'tag2'],channel: 'sample app',feature: 'create link',stage: 'created link',type: 1,data: {mydata: {foo: 'bar'},'$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html','$og_title': 'Branch Metrics','$og_description': 'Branch Metrics','$og_image_url': 'http://branch.io/img/logo_icon_white.png'}});");
-      branch.createLink({
-        tags: ['tag1', 'tag2'],
-        channel: 'sample app',
-        feature: 'create link',
-        stage: 'created link',
-        type: 1,
-        data: {  
-          mydata: {
-            foo: 'bar'
-          },
-          '$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html',
-          '$og_title': 'Branch Metrics',
-          '$og_description': 'Branch Metrics',
-          '$og_image_url': 'http://branch.io/img/logo_icon_white.png'
-        }
-      }, function(link){
-        response.html('<a href="' + link + '">' + link + '</a>');
       });
     });
     $('#SMSLink').click(function(){
@@ -188,6 +201,9 @@
         response.html(JSON.stringify(data));
       });
     });
+
+    //if device is mobile, move to the apps
+    //else if device is PC, text meassge
     $('#appBanner').click(function(){
       request.html('branch.appBanner({icon: \'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png\',title: \'Branch Demo App\',description: \'The Branch demo app!\',data: {foo: \'bar\'}});');
       branch.appBanner({

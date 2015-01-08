@@ -1,7 +1,22 @@
+var device_id = 0; //PC:0, mobile:1
 
 $(document).ready( function() {
-  update_count();
+  var filter = "win16|win32|win63|mac|macintel"
+  var info     = $('.info');
+  var request  = $('.request');
+  var response = $('.response');
 
+  if(navigator.platform){
+    if(filter.indexOf(navigator.platform.toLowerCase())<0){
+      device_id=1;
+    }else{
+      device_id=0;
+    }
+  }
+
+  branch.init();
+
+  //update_count();
   $("#search-keyword").keyup(function(event){
     search_start(event);
   })
@@ -10,7 +25,7 @@ $(document).ready( function() {
 // count 업데이트
 function update_count() {
   $.ajax( {
-    url: 'http://localhost:9200/dbx/file/_count',
+    url: 'http://localhost:9200/appscon1/file/_count',
     dataType:'json',
     type: 'get'
   }).done(function(data) {
@@ -37,18 +52,13 @@ function search_start(event){
       var start = new Date().getTime();
       
       $.ajax({
-        url: 'http://localhost:9200/dbx/file/_search?q=*'+search_keyword+'*'+checked,
+        url: 'http://localhost:9200/appscon1/file/_search?q=*'+search_keyword+'*'+checked,
         dataType: 'jsonp',
         type: 'get'
       }).done(function(data){
         if(data!=null){
           var count = 0;
-          var html = "<table class='table table-striped'><thead>";
-          html += "<th width=40>순서</th>";
-          html += "<th width=60>파일이름</th>";
-          html += "<th width=50>구분</th>";
-          html += "<th width=200>내용</th>";
-          html += "<th width=150>생성시간</th></thead>";
+          var html = "<table class='table table-striped result_table'><thead>";
 
           var end = new Date().getTime();
           var time = end - start;
@@ -63,10 +73,8 @@ function search_start(event){
             if (value["_source"]["text"] == "") { docu_type = "이미지"; }
 
             html += "<tr><td>" + count + "</td>";
-            html += "<td>" + "<a href='../download/" + value["_source"]["resourceName"] + "' target=_blank>" + value["_source"]["title"] + "</a></td>";
-            html += "<td>" + docu_type + "</td>";
-            html += "<td>" + value["_source"]["text"] + "</td>";
-            html += "<td>" + value["_source"]["created"] + "</td></tr>";
+            html += "<td><a href=javascript:app_deeplink('"+value["_source"]["resourceName"].split('.')[0]+"',"+count+")><img id='icon_click-"+count+"' class='icon_app' src='./static/images/"+value["_source"]["resourceName"].split('.')[0]+".png"+"' width=60px height=60px /></a></td>"
+            html += "<td>" + value["_source"]["text"] + "</td></tr>";
           });
           html += "</table>";
           $("#result_table").html(html);
@@ -75,10 +83,43 @@ function search_start(event){
   }   
 }
 
-(function() {
+var kakao = '77005551715745880';
+var dbx = '80884516050174413';
+var beat = '81632581782602642';
 
+function app_deeplink(name, value){
+   branch.createLink({
+      tags: ['tag1', 'tag2'],
+      channel: name,
+      feature: 'create link',
+      stage: 'created link',
+      type: 1,
+      data: {  
+        mydata: {
+          foo: 'tehran-'+value
+        },
+        '$desktop_url': 'http://hunjae.com',
+        '$og_title': name,
+        '$og_description': value
+      }
+    }, function(link){
+      //2. Send to the registered mobile
+        if(device_id==0){
+          //PC
+          //1. Create URL for specific mobile page
+          response.html('<a href="' + link + '">' + link + '</a>');
+        }else{
+          //mobile (neither window or mac)
+          //1. if there is the app, move to the app
+          window.location.replace(link);
+          //2. else go to app store
+        }
+    });
+}
+
+(function() {
   var config = {
-    app_id: '80884516050174413',
+    app_id: dbx,
     debug: true,
     init_callback: function(){
       console.log('Branch SDK initialized!');
@@ -93,8 +134,11 @@ function search_start(event){
   b.async=!0,b.src="https://bnc.lt/_r",document.getElementsByTagName("head")[0].appendChild(b),self._r=function(){if(
   void 0!==window.browser_fingerprint_id){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a
   .src="https://s3-us-west-1.amazonaws.com/branch-web-sdk/branch-0.x.min.js",document.getElementsByTagName("head")[0].appendChild(a)
-  }else window.setTimeout("self._r()",100)},self._r()};window.branch=new Branch_Init(config);
-  // End Branch SDK //
+  }else window.setTimeout("self._r()",100)},self._r()};
 
+  window.branch=new Branch_Init(config);
+  // End Branch SDK //
 })();
+
+
 

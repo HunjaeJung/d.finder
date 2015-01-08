@@ -37,6 +37,10 @@
 	height:30px;
 }
 
+.icon_app{
+	cursor: pointer;
+}
+
 input{
 	text-align: center;
 }
