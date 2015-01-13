@@ -1,0 +1,50 @@
+/* CSS declarations go here */
+.wrapper{
+	text-align: center;
+}
+
+.result_table{
+	display:inline-block;
+}
+
+.engine_title{
+	text-decoration: none;
+	font-size: 30px;
+	color:black;
+	font-weight: bold;
+	display: block;
+}
+
+.count_result{
+	margin:20px;
+}
+
+.count_index{
+	font-size: 12px;
+}
+
+.title_img{
+	margin-top:30px;
+}
+
+.dbx_img{
+	float:right;
+}
+
+.login-field{
+	margin-top:30px;
+	width:360px;
+	height:30px;
+}
+
+.icon_app{
+	cursor: pointer;
+}
+
+input{
+	text-align: center;
+}
+
+.response{
+	font-size: 30px;
+}

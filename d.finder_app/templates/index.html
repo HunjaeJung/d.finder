@@ -1,0 +1,58 @@
+<!doctype html>
+
+<head>
+	<title>app.finder</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet/style.css') }}">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{{
+  url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+	<script type=text/javascript src="{{
+	  url_for('static', filename='js/appfinder.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<style type="text/css">
+	.btn {
+	  margin-top: 5px;
+	}
+	#SMSNumber {
+	  width: 125px;
+	  display: inline-block;
+	  margin-top: 5px;
+	  vertical-align: middle;
+	}
+	.group {
+	  display: inline-block;
+	}
+	</style>
+</head>
+
+<body>
+  <a id="refresh_id">Refresh data</a>
+  <script type="text/javascript">
+    $('#refresh_id').click(function(){
+      $.ajax({
+        url : "http://localhost:5000/_update_files",
+        data : {a: 1, b: 2},
+        type : 'GET'
+      }).done(function(data) {
+        alert("앱 등록 완료")
+      }).error(function(e) {
+        console.log("error")
+      });
+    })
+  </script>
+	<a href="{{authorize_url}}">
+	<div class="wrapper">
+		<a class="engine_title" href="{{url_for('dfinder')}}">
+		<img src="{{ url_for('static', filename='images/steampunk.jpg') }}" width='400px' class="title_img"/>
+		<br/></a>
+		<div id="count_index" class="count_index"></div>
+
+		<input type="text" class="login-field" value="" placeholder="검색 키워드 입력, 그리고 엔터" id="search-keyword" />
+
+		<div id="count_result" class="count_result"></div>
+    <div class="response"></div>   
+		<div id="result_table" class="result_table"></div>
+	</div>
+</body>

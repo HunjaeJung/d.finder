@@ -1,0 +1,15 @@
+[2015-01-12 12:52:08,200][INFO ][node                     ] [Set] stopping ...
+[2015-01-12 12:52:08,503][INFO ][node                     ] [Set] stopped
+[2015-01-12 12:52:08,503][INFO ][node                     ] [Set] closing ...
+[2015-01-12 12:52:08,519][INFO ][node                     ] [Set] closed
+[2015-01-12 14:38:27,854][INFO ][node                     ] [Calypso] version[1.4.2], pid[1017], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-12 14:38:27,855][INFO ][node                     ] [Calypso] initializing ...
+[2015-01-12 14:38:27,886][INFO ][plugins                  ] [Calypso] loaded [analysis-korean, jetty], sites [bigdesk, head]
+[2015-01-12 14:38:31,036][INFO ][node                     ] [Calypso] initialized
+[2015-01-12 14:38:31,036][INFO ][node                     ] [Calypso] starting ...
+[2015-01-12 14:38:31,165][INFO ][transport                ] [Calypso] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/172.16.101.22:9300]}
+[2015-01-12 14:38:31,224][INFO ][discovery                ] [Calypso] elasticsearch/sGu8rUqYTNWCzdVxZd121Q
+[2015-01-12 14:38:35,008][INFO ][cluster.service          ] [Calypso] new_master [Calypso][sGu8rUqYTNWCzdVxZd121Q][Hunjaeui-MacBook-Pro.local][inet[/172.16.101.22:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-12 14:38:35,033][INFO ][http                     ] [Calypso] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/172.16.101.22:9200]}
+[2015-01-12 14:38:35,033][INFO ][node                     ] [Calypso] started
+[2015-01-12 14:38:35,713][INFO ][gateway                  ] [Calypso] recovered [9] indices into cluster_state

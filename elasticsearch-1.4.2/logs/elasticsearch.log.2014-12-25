@@ -1,0 +1,37 @@
+[2014-12-25 23:46:28,343][INFO ][node                     ] [Coral] version[1.4.2], pid[1140], build[927caff/2014-12-16T14:11:12Z]
+[2014-12-25 23:46:28,343][INFO ][node                     ] [Coral] initializing ...
+[2014-12-25 23:46:28,347][INFO ][plugins                  ] [Coral] loaded [], sites []
+[2014-12-25 23:46:31,319][INFO ][node                     ] [Coral] initialized
+[2014-12-25 23:46:31,320][INFO ][node                     ] [Coral] starting ...
+[2014-12-25 23:46:31,448][INFO ][transport                ] [Coral] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.12:9300]}
+[2014-12-25 23:46:31,504][INFO ][discovery                ] [Coral] elasticsearch/xxndr098SBasAd0ZJgaQEg
+[2014-12-25 23:46:35,300][INFO ][cluster.service          ] [Coral] new_master [Coral][xxndr098SBasAd0ZJgaQEg][Hunjaeui-MacBook-Pro.local][inet[/192.168.0.12:9300]], reason: zen-disco-join (elected_as_master)
+[2014-12-25 23:46:35,319][INFO ][http                     ] [Coral] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.12:9200]}
+[2014-12-25 23:46:35,320][INFO ][node                     ] [Coral] started
+[2014-12-25 23:46:35,333][INFO ][gateway                  ] [Coral] recovered [0] indices into cluster_state
+[2014-12-25 23:47:17,524][INFO ][node                     ] [Coral] stopping ...
+[2014-12-25 23:47:17,538][INFO ][node                     ] [Coral] stopped
+[2014-12-25 23:47:17,538][INFO ][node                     ] [Coral] closing ...
+[2014-12-25 23:47:17,543][INFO ][node                     ] [Coral] closed
+[2014-12-25 23:47:20,880][INFO ][node                     ] [Rainbow] version[1.4.2], pid[1163], build[927caff/2014-12-16T14:11:12Z]
+[2014-12-25 23:47:20,881][INFO ][node                     ] [Rainbow] initializing ...
+[2014-12-25 23:47:20,884][INFO ][plugins                  ] [Rainbow] loaded [], sites []
+[2014-12-25 23:47:23,118][INFO ][node                     ] [Rainbow] initialized
+[2014-12-25 23:47:23,118][INFO ][node                     ] [Rainbow] starting ...
+[2014-12-25 23:47:23,215][INFO ][transport                ] [Rainbow] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.12:9300]}
+[2014-12-25 23:47:23,235][INFO ][discovery                ] [Rainbow] elasticsearch/6gTHZ_WLTuezYS-kJeb7sQ
+[2014-12-25 23:47:24,076][INFO ][node                     ] [Rainbow] stopping ...
+[2014-12-25 23:47:24,087][INFO ][node                     ] [Rainbow] stopped
+[2014-12-25 23:47:24,087][INFO ][node                     ] [Rainbow] closing ...
+[2014-12-25 23:47:24,091][INFO ][node                     ] [Rainbow] closed
+[2014-12-25 23:47:58,823][INFO ][node                     ] [Umbo] version[1.4.2], pid[1209], build[927caff/2014-12-16T14:11:12Z]
+[2014-12-25 23:47:58,824][INFO ][node                     ] [Umbo] initializing ...
+[2014-12-25 23:47:58,833][INFO ][plugins                  ] [Umbo] loaded [analysis-korean], sites []
+[2014-12-25 23:48:01,150][INFO ][node                     ] [Umbo] initialized
+[2014-12-25 23:48:01,151][INFO ][node                     ] [Umbo] starting ...
+[2014-12-25 23:48:01,241][INFO ][transport                ] [Umbo] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.12:9300]}
+[2014-12-25 23:48:01,263][INFO ][discovery                ] [Umbo] elasticsearch/rOw_zTHUQ1qei8jOtMkx3A
+[2014-12-25 23:48:05,043][INFO ][cluster.service          ] [Umbo] new_master [Umbo][rOw_zTHUQ1qei8jOtMkx3A][Hunjaeui-MacBook-Pro.local][inet[/192.168.0.12:9300]], reason: zen-disco-join (elected_as_master)
+[2014-12-25 23:48:05,063][INFO ][http                     ] [Umbo] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.12:9200]}
+[2014-12-25 23:48:05,063][INFO ][node                     ] [Umbo] started
+[2014-12-25 23:48:05,072][INFO ][gateway                  ] [Umbo] recovered [0] indices into cluster_state

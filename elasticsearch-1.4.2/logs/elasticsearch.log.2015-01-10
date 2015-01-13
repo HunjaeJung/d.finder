@@ -1,0 +1,11 @@
+[2015-01-10 01:26:53,535][INFO ][node                     ] [Set] version[1.4.2], pid[1425], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-10 01:26:53,536][INFO ][node                     ] [Set] initializing ...
+[2015-01-10 01:26:53,561][INFO ][plugins                  ] [Set] loaded [analysis-korean, jetty], sites [bigdesk, head]
+[2015-01-10 01:26:56,671][INFO ][node                     ] [Set] initialized
+[2015-01-10 01:26:56,672][INFO ][node                     ] [Set] starting ...
+[2015-01-10 01:26:56,801][INFO ][transport                ] [Set] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/172.16.101.122:9300]}
+[2015-01-10 01:26:56,847][INFO ][discovery                ] [Set] elasticsearch/jpYnGQhXSXGr1KmtSW9Atg
+[2015-01-10 01:27:00,644][INFO ][cluster.service          ] [Set] new_master [Set][jpYnGQhXSXGr1KmtSW9Atg][Hunjaeui-MacBook-Pro.local][inet[/172.16.101.122:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-10 01:27:00,666][INFO ][http                     ] [Set] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/172.16.101.122:9200]}
+[2015-01-10 01:27:00,666][INFO ][node                     ] [Set] started
+[2015-01-10 01:27:01,306][INFO ][gateway                  ] [Set] recovered [9] indices into cluster_state
