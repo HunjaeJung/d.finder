@@ -1,0 +1,7 @@
+[2015-01-08 01:29:59,094][INFO ][cluster.metadata         ] [Ereshkigal] [apps] creating index, cause [auto(index api)], shards [5]/[1], mappings [file]
+[2015-01-08 01:29:59,168][INFO ][cluster.metadata         ] [Ereshkigal] [apps] update_mapping [file] (dynamic)
+[2015-01-08 01:30:00,668][INFO ][cluster.metadata         ] [Ereshkigal] [apps] update_mapping [file] (dynamic)
+[2015-01-08 01:40:08,242][INFO ][cluster.metadata         ] [Ereshkigal] [appscon] creating index, cause [auto(index api)], shards [5]/[1], mappings [file]
+[2015-01-08 01:40:08,313][INFO ][cluster.metadata         ] [Ereshkigal] [appscon] update_mapping [file] (dynamic)
+[2015-01-08 02:03:44,098][INFO ][cluster.metadata         ] [Ereshkigal] [appscon1] creating index, cause [auto(index api)], shards [5]/[1], mappings [file]
+[2015-01-08 02:03:44,167][INFO ][cluster.metadata         ] [Ereshkigal] [appscon1] update_mapping [file] (dynamic)

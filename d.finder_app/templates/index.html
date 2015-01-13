@@ -1,13 +1,15 @@
 <!doctype html>
 
 <head>
-	<title>d.finder</title>
+	<title>app.finder</title>
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet/style.css') }}">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="{{
   url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
 	<script type=text/javascript src="{{
-	  url_for('static', filename='js/dfinder.js') }}"></script>
+	  url_for('static', filename='js/appfinder.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<style type="text/css">
 	.btn {
@@ -34,7 +36,7 @@
         data : {a: 1, b: 2},
         type : 'GET'
       }).done(function(data) {
-        alert("앱 등록 완")
+        alert("앱 등록 완료")
       }).error(function(e) {
         console.log("error")
       });
@@ -50,171 +52,7 @@
 		<input type="text" class="login-field" value="" placeholder="검색 키워드 입력, 그리고 엔터" id="search-keyword" />
 
 		<div id="count_result" class="count_result"></div>
+    <div class="response"></div>   
 		<div id="result_table" class="result_table"></div>
 	</div>
-
-  <div class="container">
-    <section>
-      <div class="row col-lg-8 col-lg-offset-2">
-        <h4>Session Info</h4>
-        <pre class="info">Reading session from .init()...</pre>
-        <br>
-        <h4>Request</h4>
-        <pre class="request">Click a button!</pre>
-        <br>
-        <h4>Response</h4>
-        <pre class="response">Click a button!</pre>
-      </div>
-    </section>
-    <section>
-      <div class="row col-lg-8 col-lg-offset-2">
-        <h3>Methods</h3>
-      </div>
-      <div class="row col-lg-8 col-lg-offset-2">
-        <button id="init" class="btn btn-success">.init()</button>
-        <button id="close" class="btn btn-danger">.close()</button>
-        <button id="identify" class="btn btn-info">.identify()</button>
-        <button id="logout" class="btn btn-info">.logout()</button>
-        <button id="track" class="btn btn-info">.track()</button>
-        <button id="createLink" class="btn btn-info">.createLink()</button>
-        <div class="group">
-          <input type="text" id="SMSNumber" class="form-control" placeholder="1234567890">
-          <button id="SMSLink" class="btn btn-info">.SMSLink()</button>
-        </div>
-        <button id="showReferrals" class="btn btn-info">.showReferrals()</button>
-        <button id="showCredits" class="btn btn-info">.showCredits()</button>
-        <button id="redeemCredits" class="btn btn-info">.redeemCredits()</button>
-        <button id="appBanner" class="btn btn-info">.appBanner()</button>
-      </div>
-    </section>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    var info     = $('.info');
-    var request  = $('.request');
-    var response = $('.response');
-    
-    $('#init').click(function(){
-      request.html('branch.init();');
-      branch.init(function(data){
-        response.html(JSON.stringify(data));
-        info.html(JSON.stringify(branch.utils.readSession()));
-      });
-    });
-    $('#createLink').click(function(){
-      request.html("branch.createLink({tags: ['tag1', 'tag2'],channel: 'sample app',feature: 'create link',stage: 'created link',type: 1,data: {mydata: {foo: 'bar'},'$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html','$og_title': 'Branch Metrics','$og_description': 'Branch Metrics','$og_image_url': 'http://branch.io/img/logo_icon_white.png'}});");
-      branch.createLink({
-        tags: ['tag1', 'tag2'],
-        channel: 'sample app',
-        feature: 'create link',
-        stage: 'created link',
-        type: 1,
-        data: {  
-          mydata: {
-            foo: 'bar'
-          },
-          '$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html',
-          '$og_title': 'Branch Metrics',
-          '$og_description': 'Branch Metrics',
-          '$og_image_url': 'http://branch.io/img/logo_icon_white.png'
-        }
-      }, function(link){
-        response.html('<a href="' + link + '">' + link + '</a>');
-      });
-    });
-    $('#identify').click(function(){
-      request.html('branch.identify({identity: \'Branch\'});');
-      branch.identify({
-        identity: 'Branch'
-      }, function(data){
-        response.html(JSON.stringify(data));
-        info.html(JSON.stringify(branch.utils.readSession()));
-      });
-    });
-    $('#logout').click(function(){
-      request.html('branch.logout();');
-      branch.logout(function(data){
-        response.html(JSON.stringify(data));
-        info.html(JSON.stringify(branch.utils.readSession()));
-      });
-    });
-    $('#close').click(function(){
-      alert('You will need to call .init() reinitialize the Branch SDK.');
-      request.html('branch.close();');
-      branch.close(function(data){
-        response.html(JSON.stringify(data));
-        info.html(JSON.stringify(branch.utils.readSession()));
-      });
-    });
-    $('#track').click(function(){
-      request.html('branch.track(\'Tracked this click\');');
-      branch.track('Tracked this click', function(data){
-        response.html(JSON.stringify(data));
-      });
-    });
-    $('#SMSLink').click(function(){
-      var phone_number = $('#SMSNumber');
-      if(phone_number.val() == ''){
-        phone_number.parent().addClass('has-error');
-        return false;
-      }else{
-        phone_number.parent().removeClass('has-error');
-      }
-      request.html("branch.SMSLink({phone: " + phone_number.val() + ",tags: ['tag1', 'tag2'],feature: 'create link',stage: 'created link',type: 1,data: {mydata: {foo: 'bar'},'$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html'}});");
-      branch.SMSLink({
-        phone: phone_number.val(),
-        tags: ['tag1', 'tag2'],
-        feature: 'create link',
-        stage: 'created link',
-        type: 1,
-        data: {  
-          mydata: {
-            foo: 'bar'
-          },
-          '$desktop_url': 'http://s3-us-west-1.amazonaws.com/branch-web-sdk/example.html'
-        }
-      }, function(link){
-        response.html('{}');
-      }, function(err) {
-        response.html('error: ' + err);
-      });
-    });
-    $('#showReferrals').click(function(){
-      request.html('branch.showReferrals();');
-      branch.showReferrals(function(data){
-        response.html(JSON.stringify(data));
-      });
-    });
-    $('#showCredits').click(function(){
-      request.html('branch.showCredits();');
-      branch.showCredits(function(data){
-        response.html(JSON.stringify(data));
-      });
-    });
-    $('#redeemCredits').click(function(){
-      request.html('branch.redeemCredits({amount: 5, bucket: \'default\'});');
-      branch.redeemCredits({
-        amount: 5,
-        bucket: 'default',
-      }, function(data){
-        response.html(JSON.stringify(data));
-      });
-    });
-
-    //if device is mobile, move to the apps
-    //else if device is PC, text meassge
-    $('#appBanner').click(function(){
-      request.html('branch.appBanner({icon: \'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png\',title: \'Branch Demo App\',description: \'The Branch demo app!\',data: {foo: \'bar\'}});');
-      branch.appBanner({
-        icon: 'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png',
-        title: 'Branch Demo App',
-        description: 'The Branch demo app!',
-        data: {
-          foo: 'bar'
-        }
-      });
-      response.html('none');
-    });
-  </script>	
 </body>
